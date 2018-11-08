@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザ管理システム[ログイン画面]</title>
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header class="header-title">
+    <p>ログイン</p>
+</header>
+<Form name="loginForm">
+    <div class="contentMain">
+        <ul class="contentMain__ul">
+            <li class="contentMain__li">
+                <label class="contentMain__lab" for="userId">ユーザＩＤ</label>
+                <input type="text" name="userId" id="userId" size="20">
+            </li>
+            <li class="contentMain__li">
+                <label class="contentMain__lab" for="passWord">パスワード</label>
+                <input type="password" name="passWord" id="passWord" size="20" >
+            </li>
+        </ul>
+    </div>
+    <div class="content-footer">
+        <input type="button" class="btn btn--left" name="changePass" onClick="location.href='./password/password.html'" value="パスワード変更">
+        <input type="button" class="btn btn--right" name="close" value="閉じる" onClick="window.close(); return false;">
+        <input type="button" class="btn btn--right" value="ログイン" onClick="check();">
+    </div>
+</Form>
+
+<script src="./js/common.js"></script>
+
+<script>
+function check() {
+
+    // ユーザIDチェック
+    if (UserIdCheck(document.getElementById("userId").value) ) {
+        document.getElementById("userId").focus();
+        return false;
+    }
+
+    // パスワードチェック
+    if (PassWordCheck(document.getElementById("passWord").value) ) {
+        document.getElementById("passWord").focus();
+        return false;
+    }
+
+}
+
+</script>
+</body>
+</html>
